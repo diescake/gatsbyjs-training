@@ -25,7 +25,7 @@ date: '2018-12-07T22:40:32.169Z'
 
 まず、最初に `Array.prototype.filter` の例です。
 
-```js:forEach
+```js
 const pomeranians = []
 
 dogs.forEach(dog => {
@@ -40,7 +40,7 @@ dogs.forEach(dog => {
 勿論この実装でも正常に動作しますが、
 このケースでは下記のように `filter` を利用することでより簡潔に記述できます。
 
-```js:filter
+```js
 const pomeranians = dogs.filter(dog => {
   return dog.type === 'pomeranian'
 })
@@ -49,7 +49,7 @@ const pomeranians = dogs.filter(dog => {
 さらに、実際には arrow function の shorthand を利用することでさらにコンパクトになります。
 (これ以降の例では shorthand によるコードのみを紹介します)
 
-```js:filter(shorthanded)
+```js
 const pomeranians = dogs.filter(dog => dog.type === 'pomeranian')
 ```
 
@@ -73,7 +73,7 @@ const pomeranians = dogs.filter(dog => dog.type === 'pomeranian')
 
 続いて `Array.prototype.find` です。
 
-```js:forEach
+```js
 let myDog
 
 dogs.forEach(dog => {
@@ -89,7 +89,7 @@ dogs.forEach(dog => {
 もっと素朴に `for` 文で記述する人も見かけましたが、
 いずれもあまり良いコードとはいえません。
 
-```js:for
+```js
 let myDog
 
 for (let i = 0; i < dogs.length; i++) {
@@ -102,13 +102,13 @@ for (let i = 0; i < dogs.length; i++) {
 
 このケースでは下記のように `find` を利用することでより目的を明確にし、簡潔に記述できます。
 
-```js:find
+```js
 const myDog = dogs.find(dog => dog.name === 'ポメラニアス3世')
 ```
 
 ちなみに、`filter` を使うと以下のように書けます。
 
-```js:filter
+```js
 const myDog = dogs.filter(dog => dog.name === 'ポメラニアス3世')[0]
 ```
 
@@ -124,7 +124,7 @@ const myDog = dogs.filter(dog => dog.name === 'ポメラニアス3世')[0]
 
 3 番目、`Array.prototype.map` です。
 
-```js:forEach
+```js
 const dogNames = []
 
 dogs.forEach(dog => {
@@ -135,14 +135,14 @@ dogs.forEach(dog => {
 このコードは、配列 `dogs` の各要素を参照して、別の配列を作り出す例です。
 別の構成の配列を作り出すようなケースでは `map` を使うときれいにかけます。
 
-```js:map
+```js
 const dogNames = dogs.map(dog => dog.name)
 ```
 
 この例ではあまりにシンプル過ぎてメリットが伝わらないかもしれませんが、
 React で JSX を扱う場合は、必ず利用するといっても良いくらい活躍の場は多いです。
 
-```jsx:map
+```jsx
 render() {
   return (
     <ul>
@@ -155,7 +155,7 @@ render() {
 また、下記のように、特定の要素のみを加工して配列に作るというケースはあると思いますが、
 `map` だけでは要素の取捨選択を行うことはできないため `filter` と組み合わせて実現することになります。
 
-```js:forEach
+```js
 const pomeranians = []
 
 dogs.forEach(dog => {
@@ -168,7 +168,7 @@ dogs.forEach(dog => {
 })
 ```
 
-```js:filter->map
+```js
 const animals = dogs.filter(dog => dog.type === 'pomeranian')
   .map(dog => ({
     id: uuid(),
@@ -178,7 +178,7 @@ const animals = dogs.filter(dog => dog.type === 'pomeranian')
 
 `map` で処理する前に `filter` で条件にあった配列を抜き出しています。
 
-```js:map->filter
+```js
 const animals = dogs.map(dog => {
   if (dog.type !== 'pomeranian') {
     return null;
@@ -202,7 +202,7 @@ const animals = dogs.map(dog => {
 
 最後に `Array.prototype.reduce` です。
 
-```js:forEach
+```js
 let total = 0
 
 dogs.forEach(dog => {
@@ -216,7 +216,7 @@ dogs.forEach(dog => {
 こういった配列の合計値を求める処理や、文字列連結を行う際に、
 変数宣言を `let` から `const` に書き換えることができるという点が便利ですね。
 
-```js:reduce
+```js
 const total = dogs.reduce((acc, dog) => acc + dog.price, 0)
 ```
 
@@ -231,7 +231,7 @@ const total = dogs.reduce((acc, dog) => acc + dog.price, 0)
 
 さて、逆に `Array.prototype.forEach` での記述が妥当だと感じた例です。
 
-```js:forEach
+```js
 dogs.forEach(dog => {
   console.log(dog.name)
 })
@@ -244,13 +244,13 @@ dogs.forEach(dog => {
 `forEach` でループごとに `await` することができないことと、実際には `Promise.all` を利用して並行処理できるケースが多いと思うので、
 この場合は Promise の配列を返すために `map` を利用することになると思います。
 
-```js:map
+```js
 await Promise.all(dogs.map(async dog => await dog.eat('ペディグリーチャム'));
 ```
 
 次に、ある内部状態を持つインスタンスに対して、インスタンスメソッドで操作する例です。
 
-```js:forEach
+```js
 const pomeranian = new Pomeranian()
 
 foods.forEach(food => {
@@ -262,7 +262,7 @@ foods.forEach(food => {
 
 ちなみに、`reduce` で記述すると下記のように書けます。
 
-```js:reduce
+```js
 const pomeranian = foods.reduce((pomeranian, food) => {
   if (food.type === 'beef') {
     pomeranian.add(food)

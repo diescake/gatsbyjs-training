@@ -3,7 +3,7 @@ module.exports = {
     title: `GatsbyJS Hello`,
     author: `diescake`,
     description: `Training for GatsbyJS as known as a Hello World.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://gatsbyjs-hello.netlify.com/`,
     social: {
       twitter: `diescake`,
     },
@@ -39,7 +39,16 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: `language-`,
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
