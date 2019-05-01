@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `GatsbyJS Hello`,
     author: `diescake`,
+    description: `Training for GatsbyJS as known as a Hello World.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `diescake`,
