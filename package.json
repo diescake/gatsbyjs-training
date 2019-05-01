@@ -1,0 +1,10 @@
+{
+  "name": "gatsbyjs-training",
+  "version": "1.0.0",
+  "description": "Training for GatsbyJS",
+  "main": "index.js",
+  "repository": "git@github.com:diescake/gatsbyjs-training.git",
+  "author": "diescake <daisuke.kondo@access-company.com>",
+  "license": "MIT",
+  "private": false
+}
