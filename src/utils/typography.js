@@ -1,10 +1,16 @@
-import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import Typography from 'typography'
+import Wordpress2016 from 'typography-theme-wordpress-2016'
 
 Wordpress2016.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
+    'a.gatsby-resp-image-link': {
       boxShadow: `none`,
+    },
+    body: {
+      FontFamily: `"YuGothic", "Yu Gothic", "Meiryo", "Roboto Regular", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "sans-serif"`,
+    },
+    'h1, h2, h3, h4, h5, h6': {
+      FontFamily: `"YuGothic", "Yu Gothic", "Meiryo", "Roboto Regular", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "sans-serif"`,
     },
   }
 }
